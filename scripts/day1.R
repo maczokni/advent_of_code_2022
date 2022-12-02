@@ -1,5 +1,5 @@
 #read in data
-day1 <- as.list(readLines("2022/day1.txt"))
+day1 <- as.list(readLines("data/day1.txt"))
 
 # Part 1
 
