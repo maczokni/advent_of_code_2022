@@ -49,3 +49,7 @@ for (team in elf_teams){
 }
 
 team_items <- do.call(rbind,datalist)
+# attach lookup table for points
+final_team_thing <- left_join(team_items, point_lookup, by = c("item" = "common_item"))
+# get the sum
+sum(final_team_thing$points)
