@@ -30,9 +30,12 @@ sum(final_thing$points)
 
 # iterate through 3 rows at a time
 
+# make list of teams
 elf_teams <- paste0(seq(1,nrow(final_thing), 3),":",seq(3,nrow(final_thing), 3))
+# prepare loop
 datalist <- list()
 i <- 1
+# for each team find the common item and save to a df
 for (team in elf_teams){
   
   team_df <- final_thing[eval(parse(text = team)),]
@@ -47,7 +50,7 @@ for (team in elf_teams){
   i <- i + 1
   
 }
-
+# assemble the df
 team_items <- do.call(rbind,datalist)
 # attach lookup table for points
 final_team_thing <- left_join(team_items, point_lookup, by = c("item" = "common_item"))
